@@ -1,0 +1,6 @@
+- Adding a new screen
+--- add new .js file in screens dir
+--- import and specify in navigations/navigator.js
+--- specify in index.js (as to fetch with all other screens)
+
+API URL = http://1796ee58e5f0.ngrok.io
