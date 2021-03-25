@@ -8,11 +8,13 @@ import {
   TouchableOpacity,
   ScrollView,
   Alert,
+  TouchableHighlight,
 } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
 import { Axiosapi } from "../../App";
 import Separator from "../common/Separator";
 import { icons, images, theme, COLORS, SIZES, FONTS } from "../constants";
+import RazorpayCheckout from "react-native-razorpay";
 
 const CheckoutScreen = ({ navigation, route }) => {
   const [address, setAddress] = useState(route.params.addressData);
@@ -43,7 +45,6 @@ const CheckoutScreen = ({ navigation, route }) => {
     originalPrice: 0,
     discountedPrice: 0,
     totalOffer: 0,
-   
   });
   const [userId, setUserId] = useState("");
 
@@ -74,9 +75,9 @@ const CheckoutScreen = ({ navigation, route }) => {
       address: address,
     })
       .then((res) => {
-        console.log(res.data.success);
-        // Alert.alert("Order created successfully");
-        navigation.navigate("OrderConfirmedScreen");
+        console.log(res.data);
+        Alert.alert("Order created successfully");
+        // navigation.navigate("OrderConfirmedScreen");
       })
       .catch((err) => console.log(err));
   };
@@ -158,106 +159,126 @@ const CheckoutScreen = ({ navigation, route }) => {
           }}
         >
           <View>
-          {action == "createSubscription" ?  <View style={{ flex: 1, marginHorizontal: 30 }}>
-            <View
-                style={{
-                  flexDirection: "row",
-                  justifyContent: "space-between",
-                  margin: 15,
-                }}
-              >
-                <Text style={{ fontSize: 16 }}>Total amount</Text>
-                <Text style={{ fontSize: 16 }}>Rs. {originalPrice.toFixed(2)}</Text>
-              </View>
-              <Separator />
-              <View
-                style={{
-                  flexDirection: "row",
-                  justifyContent: "space-between",
-                  margin: 15,
-                }}
-              >
-                <Text style={{ fontSize: 16 }}>Discount percentage</Text>
-                <Text style={{ fontSize: 16 }}>{selectedData.offer.toFixed(2)} %</Text>
-              </View>
-              <Separator />
+            {action == "createSubscription" ? (
+              <View style={{ flex: 1, marginHorizontal: 30 }}>
+                <View
+                  style={{
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                    margin: 15,
+                  }}
+                >
+                  <Text style={{ fontSize: 16 }}>Total amount</Text>
+                  <Text style={{ fontSize: 16 }}>
+                    Rs. {originalPrice.toFixed(2)}
+                  </Text>
+                </View>
+                <Separator />
+                <View
+                  style={{
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                    margin: 15,
+                  }}
+                >
+                  <Text style={{ fontSize: 16 }}>Discount percentage</Text>
+                  <Text style={{ fontSize: 16 }}>
+                    {selectedData.offer.toFixed(2)} %
+                  </Text>
+                </View>
+                <Separator />
 
-              <View
-                style={{
-                  flexDirection: "row",
-                  justifyContent: "space-between",
-                  margin: 15,
-                }}
-              >
-                <Text style={{ fontSize: 16 }}>Discounted Price</Text>
-                <Text style={{ fontSize: 16 }}>Rs. {discountedPrice.toFixed(2)}</Text>
-              </View>
-              <Separator />
+                <View
+                  style={{
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                    margin: 15,
+                  }}
+                >
+                  <Text style={{ fontSize: 16 }}>Discounted Price</Text>
+                  <Text style={{ fontSize: 16 }}>
+                    Rs. {discountedPrice.toFixed(2)}
+                  </Text>
+                </View>
+                <Separator />
 
-              <View
-                style={{
-                  flexDirection: "row",
-                  justifyContent: "space-between",
-                  margin: 15,
-                }}
-              >
-                <Text style={{ fontSize: 16, fontWeight: "bold" }}>
-                  Amount to pay
-                </Text>
-                <Text style={{ fontSize: 16 ,fontWeight:'bold'}}>Rs. {discountedPrice.toFixed(2)}</Text>
+                <View
+                  style={{
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                    margin: 15,
+                  }}
+                >
+                  <Text style={{ fontSize: 16, fontWeight: "bold" }}>
+                    Amount to pay
+                  </Text>
+                  <Text style={{ fontSize: 16, fontWeight: "bold" }}>
+                    Rs. {discountedPrice.toFixed(2)}
+                  </Text>
+                </View>
+                <Separator />
               </View>
-              <Separator />
-            </View> :  <View style={{ flex: 1, marginHorizontal: 30 }}>
-            <View
-                style={{
-                  flexDirection: "row",
-                  justifyContent: "space-between",
-                  margin: 15,
-                }}
-              >
-                <Text style={{ fontSize: 16 }}>Total amount</Text>
-                <Text style={{ fontSize: 16 }}>Rs. {data.total_cost.toFixed(2)}</Text>
-              </View>
-              <Separator />
-              <View
-                style={{
-                  flexDirection: "row",
-                  justifyContent: "space-between",
-                  margin: 15,
-                }}
-              >
-                <Text style={{ fontSize: 16 }}>Discount percentage</Text>
-                <Text style={{ fontSize: 16 }}>{data.totalOffer.toFixed(2)} %</Text>
-              </View>
-              <Separator />
+            ) : (
+              <View style={{ flex: 1, marginHorizontal: 30 }}>
+                <View
+                  style={{
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                    margin: 15,
+                  }}
+                >
+                  <Text style={{ fontSize: 16 }}>Total amount</Text>
+                  <Text style={{ fontSize: 16 }}>
+                    Rs. {data.total_cost.toFixed(2)}
+                  </Text>
+                </View>
+                <Separator />
+                <View
+                  style={{
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                    margin: 15,
+                  }}
+                >
+                  <Text style={{ fontSize: 16 }}>Discount percentage</Text>
+                  <Text style={{ fontSize: 16 }}>
+                    {data.totalOffer.toFixed(2)} %
+                  </Text>
+                </View>
+                <Separator />
 
-              <View
-                style={{
-                  flexDirection: "row",
-                  justifyContent: "space-between",
-                  margin: 15,
-                }}
-              >
-                <Text style={{ fontSize: 16 }}>Discounted Price</Text>
-                <Text style={{ fontSize: 16 }}>Rs. {data.discountedPrice.toFixed(2)}</Text>
-              </View>
-              <Separator />
+                <View
+                  style={{
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                    margin: 15,
+                  }}
+                >
+                  <Text style={{ fontSize: 16 }}>Discounted Price</Text>
+                  <Text style={{ fontSize: 16 }}>
+                    Rs. {data.discountedPrice.toFixed(2)}
+                  </Text>
+                </View>
+                <Separator />
 
-              <View
-                style={{
-                  flexDirection: "row",
-                  justifyContent: "space-between",
-                  margin: 15,
-                }}
-              >
-                <Text style={{ fontSize: 16, fontWeight: "bold" }}>
-                  Amount to pay
-                </Text>
-                <Text style={{ fontSize: 16 ,fontWeight:'bold'}}>Rs. {data.discountedPrice.toFixed(2)}</Text>
+                <View
+                  style={{
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                    margin: 15,
+                  }}
+                >
+                  <Text style={{ fontSize: 16, fontWeight: "bold" }}>
+                    Amount to pay
+                  </Text>
+                  <Text style={{ fontSize: 16, fontWeight: "bold" }}>
+                    Rs. {data.discountedPrice.toFixed(2)}
+                  </Text>
+                </View>
+                <Separator />
               </View>
-              <Separator />
-            </View> }
-           
+            )}
+
             <View
               style={{
                 width: "100%",
@@ -276,6 +297,7 @@ const CheckoutScreen = ({ navigation, route }) => {
                 Payment With
               </Text>
             </View>
+
             <View>
               {action === "createOrder" ? (
                 <TouchableOpacity
@@ -318,11 +340,46 @@ const CheckoutScreen = ({ navigation, route }) => {
               ) : null}
               <TouchableOpacity
                 onPress={() => {
-                  if (action === "createOrder") createOrder();
-                  console.log(action);
+                  var options = {
+                    description: "Order payment",
+                    image: "",
+                    currency: "INR",
+                    key: "rzp_test_PwiJN4ggncERMt",
+                    amount:
+                      action === "createSubscription"
+                        ? discountedPrice.toFixed(2) * 100
+                        : data.discountedPrice.toFixed(2) * 100,
+                    // amount is in Paise :)
+                    // name: "Logyana",
+                    // order_id: "order101",
+                    // Replace this with an order_id created using Orders API.
+                    // Learn more at https://razorpay.com/docs/api/orders.
+                    // prefill: {
+                    //   email: "arjunople@gmail.com",
+                    //   contact: "917249541634",
+                    //   name: "Gaurav Kumar",
+                    // },
+                    theme: { color: COLORS.primary },
+                  };
+                  RazorpayCheckout.open(options)
+                    .then((data) => {
+                      // handle success
+                      // Alert.alert(`Success: ${data.razorpay_payment_id}`);
+                      // console.log(data);
+                      // console.log(res.data);
+                      if (action === "createOrder") createOrder();
+                      // console.log(action);
 
-                  if (action === "createSubscription") createSubscription();
-                  console.log(action);
+                      if (action === "createSubscription") createSubscription();
+                      // console.log(action);
+                    })
+                    .catch((error) => {
+                      // handle failure
+                      Alert.alert("Please Retry payment ");
+                      console.log(
+                        `Error: ${error.code} | ${error.description}`
+                      );
+                    });
                 }}
                 style={{
                   flexDirection: "row",

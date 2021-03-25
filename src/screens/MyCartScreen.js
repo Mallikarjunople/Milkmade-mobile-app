@@ -57,13 +57,13 @@ const MyCartScreen = ({ navigation }) => {
       removeCartItem(cartId);
     } else {
       currentQuantity = currentQuantity - 1;
-      console.log(currentQuantity);
+      // console.log(currentQuantity);
       addToCart(productId, currentQuantity, value, unit, action);
     }
   };
   const plus = (productId, currentQuantity, value, unit, cartId, action) => {
     currentQuantity = currentQuantity + 1;
-    console.log(currentQuantity);
+    // console.log(currentQuantity);
     addToCart(productId, currentQuantity, value, unit, action);
   };
   const removeCartItem = (cartItemId) => {
@@ -73,8 +73,8 @@ const MyCartScreen = ({ navigation }) => {
     })
       .then((res) => {
         _retrieveData();
-        console.log("removing");
-        console.log(res.data);
+        // console.log("removing");
+        // console.log(res.data);
       })
       .catch((err) => console.log(err));
   };

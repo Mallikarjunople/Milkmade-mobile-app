@@ -55,7 +55,7 @@ else{
         // navigation.navigate("SignInScreen");
 
     Alert.alert("Success","Signed In successfully")
-    console.log(data);
+    // console.log(data);
         // setSpinner(!spinner);
         setData({
           phoneNumber: "",

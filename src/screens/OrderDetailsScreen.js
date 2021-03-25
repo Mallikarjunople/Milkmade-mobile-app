@@ -110,7 +110,7 @@ const OrderDetailsScreen = ({ navigation, route }) => {
                 }}
               >
                 {data.user.name}
-                {console.log(data)}
+                {/* {console.log(data)} */}
               </Text>
               <Text
                 style={{

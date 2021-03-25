@@ -18,8 +18,8 @@ function Home({ navigation }) {
   const [slideImages, setSlideImages] = useState([]);
   const [products1, setProducts1] = useState([]);
   const [products2, setProducts2] = useState([]);
-  const [category1, setcategory1] = useState();
-  const [category2, setcategory2] = useState();
+  const [category1, setcategory1] = useState("");
+  const [category2, setcategory2] = useState("");
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [dataCategories, setDataCategories] = useState([]);
@@ -29,7 +29,7 @@ function Home({ navigation }) {
   const getData = () => {
     Axiosapi.get("/api/category/all-category")
       .then((res) => {
-         console.log(res.data.Categories)
+        //  console.log(res.data.Categories)
          setcategory1(res.data.Categories[0])
          setcategory2(res.data.Categories[1])
 
@@ -171,7 +171,7 @@ function Home({ navigation }) {
               margin: 10,
             }}
           >
-            <TouchableOpacity
+            {/* <TouchableOpacity
               onPress={() => {
                 navigation.navigate("NotificationScreen");
               }}
@@ -198,7 +198,7 @@ function Home({ navigation }) {
                   tintColor: "white",
                 }}
               />
-            </TouchableOpacity>
+            </TouchableOpacity> */}
           </View>
         </View>
       </View>

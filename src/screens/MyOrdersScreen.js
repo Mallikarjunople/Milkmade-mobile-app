@@ -29,9 +29,9 @@ const MyOrdersScreen = ({navigation,route}) => {
           if (id !== null) {
             Axiosapi.post(`/api/order/order-by-user`, { uId: id }).then(
               (res) => {
-                console.log("------");
+                // console.log("------");
 
-                console.log(res.data.Order);
+                // console.log(res.data.Order);
                 setAllOrders(res.data.Order);
               }
             );

@@ -15,13 +15,13 @@ import AsyncStorage from "@react-native-community/async-storage";
 
 // for adding auth later
 export const Axiosapi = axios.create({
-  baseURL: "http://e63bda95cf23.ngrok.io",
+  baseURL: "http://69b425d16ea8.ngrok.io",
   // headers: {
   //   Authorization: `Bearer ${token}`,
   // },
 });
 // for image use from uploads folder
-export const baseURL = "http://e63bda95cf23.ngrok.io";
+export const baseURL = "http://69b425d16ea8.ngrok.io";
 
 function App() {
   const [isLoading, setIsLoading] = React.useState(true);

@@ -30,7 +30,7 @@ const MySubscriptions = ({ navigation, route }) => {
             Axiosapi.post(`/api/subscription/subscription-by-user`, {
               uId: id,
             }).then((res) => {
-              console.log("------");
+              // console.log("------");
 
               // console.log(res.data.Subscription);
               setAllSubscriptions(res.data.Subscription);

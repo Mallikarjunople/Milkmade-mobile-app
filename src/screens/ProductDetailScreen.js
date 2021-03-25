@@ -59,7 +59,7 @@ function ProductDetailScreen({ navigation, route }) {
     };
     Axiosapi.post("/api/cart/add-to-cart", obj)
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         // Alert.alert("product added successfully");
         ToastAndroid.show("Product added Successfully !!", ToastAndroid.SHORT);
       })
@@ -183,7 +183,7 @@ function ProductDetailScreen({ navigation, route }) {
     };
     Axiosapi.post("/api/user/add-to-wishlist", obj)
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         if (res.data.message == "Product-present") {
           ToastAndroid.show(
             "Already present in Wishlist !!",
@@ -204,7 +204,7 @@ function ProductDetailScreen({ navigation, route }) {
     };
     Axiosapi.post("/api/user/delete-from-wishlist", obj)
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         // Alert.alert("product added successfully");
         ToastAndroid.show("Removed From Wishlist !!", ToastAndroid.SHORT);
         userData();
@@ -246,7 +246,7 @@ function ProductDetailScreen({ navigation, route }) {
     Axiosapi.post("/api/user/single-user", {
       uId: userId,
     }).then((res) => {
-      console.log(res.data.User.wishlist);
+      // console.log(res.data.User.wishlist);
       setWishlist(res.data.User.wishlist);
     });
   };
@@ -461,7 +461,9 @@ function ProductDetailScreen({ navigation, route }) {
           >
             <Text
               style={{
-                fontWeight: "bold",
+              fontFamily:'Roboto-Bold',
+
+                // fontWeight: "bold",
                 fontSize: 28,
                 color: "grey",
                 alignSelf: "flex-start",

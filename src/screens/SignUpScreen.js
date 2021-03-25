@@ -40,7 +40,7 @@ const SignUpScreen = ({ navigation }) => {
   const { signUp } = React.useContext(AuthContext);
 
   const onSubmit = () => {
-    console.log(feedData);
+    // console.log(feedData);
 
     if (
       feedData.name === "" ||
@@ -59,7 +59,7 @@ const SignUpScreen = ({ navigation }) => {
       //   setSpinner(!spinner);
       Axiosapi.post("/api/signup", feedData)
         .then(async (res) => {
-          console.log(res.data);
+          // console.log(res.data);
           // navigation.navigate("SignInScreen");
           // setSpinner(!spinner);
           setFeedData({

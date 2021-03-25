@@ -39,7 +39,7 @@ const SelectAddress = ({ navigation, route }) => {
           if (id !== null) {
             Axiosapi.post(`/api/address/getAllAddress`, { userId: id }).then(
               (res) => {
-                console.log(res.data);
+                // console.log(res.data);
                 setAllAddresses(res.data.userAddress.address);
               }
             );

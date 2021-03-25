@@ -126,7 +126,7 @@ const MyAccountScreen = (props) => {
                   right: 5,
                 }}
               >
-                <Image
+                {/* <Image
                   source={icons.camera}
                   style={{
                     width: 25,
@@ -135,7 +135,7 @@ const MyAccountScreen = (props) => {
                     // backgroundColor: COLORS.primary,
                   }}
                   resizeMode="cover"
-                />
+                /> */}
               </TouchableOpacity>
             </View>
             <Text
