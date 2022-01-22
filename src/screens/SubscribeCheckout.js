@@ -15,7 +15,7 @@ import ModalSelector from "react-native-modal-selector";
 
 import { Switch } from "react-native-gesture-handler";
 import { Colors } from "react-native/Libraries/NewAppScreen";
-import AsyncStorage from "@react-native-community/async-storage";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import CheckoutSubscribe from "../common/CheckoutSubscribe";
 
 const SubscribeCheckout = ({ route, navigation }) => {
@@ -379,8 +379,9 @@ const SubscribeCheckout = ({ route, navigation }) => {
                             fontSize: 16,
                           }}
                         >
-                          {productData.pVariant[0].unit.split(".")[0]} :{" "}
-                          {item.credits}
+                          
+                          {/* {productData.pVariant[0].unit.split(".")[0]} :{" "} */}
+                          {item.credits} Credits
                         </Text>
                       </View>
                       <View>

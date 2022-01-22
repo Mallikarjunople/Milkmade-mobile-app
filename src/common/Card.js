@@ -11,7 +11,7 @@ import Modal from "react-native-modal";
 import { icons, images, COLORS, SIZES, FONTS } from "../constants/index";
 import Separator from "../common/Separator";
 import { Axiosapi, baseURL } from "../../App";
-import AsyncStorage from "@react-native-community/async-storage";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const Card = ({
   refreshScreen,

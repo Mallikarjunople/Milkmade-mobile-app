@@ -11,7 +11,7 @@ import {
 import Separator from "../common/Separator";
 import { icons, images, theme, COLORS, SIZES, FONTS } from "../constants";
 
-import AsyncStorage from "@react-native-community/async-storage";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Axiosapi } from "../../App";
 
 const MyAccountScreen = (props) => {

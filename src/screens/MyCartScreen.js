@@ -17,7 +17,7 @@ import { Axiosapi, baseURL } from "../../App";
 const cardWidth = SIZES.width / 2 - 20;
 
 import { icons, images, theme, COLORS, SIZES, FONTS } from "../constants";
-import AsyncStorage from "@react-native-community/async-storage";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useFocusEffect } from "@react-navigation/native";
 
 const MyCartScreen = ({ navigation }) => {

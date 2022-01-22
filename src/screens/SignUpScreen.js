@@ -24,7 +24,7 @@ import * as Animatable from "react-native-animatable";
 // } from "react-native-vector-icons";
 import { AuthContext } from "../components/context";
 import axios from "axios";
-import AsyncStorage from "@react-native-community/async-storage";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { COLORS } from "../constants/theme";
 import Spinner from "react-native-loading-spinner-overlay";
 import { Axiosapi } from "../../App";

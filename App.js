@@ -11,7 +11,7 @@ import { View, ActivityIndicator, Text, Image } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 enableScreens();
 import { AuthContext } from "./src/components/context";
-import AsyncStorage from "@react-native-community/async-storage";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 // for adding auth later
 export const Axiosapi = axios.create({

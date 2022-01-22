@@ -33,7 +33,7 @@ import {
 } from "@react-navigation/drawer";
 // import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 // import {Fontisto} from "react-native-vector-icons";
-import AsyncStorage from "@react-native-community/async-storage";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { AuthContext } from "../components/context";
 // import axios from "axios";
 import { icons, images, theme, COLORS, SIZES, FONTS } from "../constants";
