@@ -220,6 +220,7 @@ const MyCartScreen = ({ navigation }) => {
         >
           {data.cartItems ? (
             data.cartItems.map((item, index) => {
+              // console.log(item)
               return (
                 <View key={index}>
                   <View
@@ -237,7 +238,9 @@ const MyCartScreen = ({ navigation }) => {
                     <View>
                       <Image
                         source={{
-                          uri: `${baseURL}/uploads/products/${cardImage}`,
+                          uri: item.product.pImages[0]
+                            ? item.product.pImages[0]
+                            : null,
                         }}
                         style={{
                           height: 100,
@@ -469,27 +472,30 @@ const MyCartScreen = ({ navigation }) => {
               </Text>
             </View>
           </View> */}
-             <View style={{ flexDirection: "column", paddingBottom: 10 }}>
-        <View style={{ flexDirection: "row", alignItems: "center" }}>
-          <Text style={{ fontSize: 20, fontWeight: "bold", color: "white" }}>
-            Rs.{" "}
-          </Text>
-          <Text
-            style={{
-              textDecorationLine: "line-through",
-              color: "white",
-              fontSize: 17
-            }}
-          >
-            {" "}
-            {data.total_cost || ""}
-            {" "}
-          </Text>
-          <Text style={{ fontSize: 20, fontWeight: "bold", color: "white" }}>
-           {data.discountedPrice || ""}
-          </Text>
-        </View>
-      </View>
+          <View style={{ flexDirection: "column", paddingBottom: 10 }}>
+            <View style={{ flexDirection: "row", alignItems: "center" }}>
+              <Text
+                style={{ fontSize: 20, fontWeight: "bold", color: "white" }}
+              >
+                Rs.{" "}
+              </Text>
+              <Text
+                style={{
+                  textDecorationLine: "line-through",
+                  color: "white",
+                  fontSize: 17,
+                }}
+              >
+                {" "}
+                {data.total_cost || ""}{" "}
+              </Text>
+              <Text
+                style={{ fontSize: 20, fontWeight: "bold", color: "white" }}
+              >
+                {data.discountedPrice || ""}
+              </Text>
+            </View>
+          </View>
 
           <TouchableOpacity
             onPress={() =>

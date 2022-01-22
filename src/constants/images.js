@@ -16,6 +16,7 @@ export const cheese = require("../../assets/images/cheese.jpg");
 export const cheese2 = require("../../assets/images/cheese2.jpg");
 export const paneer = require("../../assets/images/paneer.jpg");
 export const paneer2 = require("../../assets/images/paneer2.jpg");
+export const defaultProductImage = require("../../assets/images/default-product-image.jpg");
 
 export const emptycart = require("../../assets/images/emptycart.jpeg");
 export const OrderConfirmed = require("../../assets/images/orderconfirmed.jpeg");
@@ -46,4 +47,5 @@ export default {
   paneer,
   paneer2,
   milk4,
+  defaultProductImage
 };

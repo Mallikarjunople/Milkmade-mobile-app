@@ -30,11 +30,13 @@ function Home({ navigation }) {
     Axiosapi.get("/api/category/all-category")
       .then((res) => {
         //  console.log(res.data.Categories)
-         setcategory1(res.data.Categories[0])
-         setcategory2(res.data.Categories[1])
+        setcategory1(res.data.Categories[2]);
+        setcategory2(res.data.Categories[1]);
 
-         fetchProductsByCategory(res.data.Categories[0]._id,res.data.Categories[1]._id,)
-
+        fetchProductsByCategory(
+          res.data.Categories[2]._id,
+          res.data.Categories[1]._id
+        );
       })
       .catch((err) => console.log(err));
   };
@@ -62,7 +64,7 @@ function Home({ navigation }) {
       .catch((err) => console.log(err));
   };
 
-  const fetchProductsByCategory = (categoryId,categoryId2) => {
+  const fetchProductsByCategory = (categoryId, categoryId2) => {
     Axiosapi.post("/api/product/product-by-category", {
       catId: categoryId,
     })
@@ -72,15 +74,15 @@ function Home({ navigation }) {
       })
       .catch((err) => console.log(err));
 
-  Axiosapi.post("/api/product/product-by-category", {
-    catId: categoryId2,
-  })
-    .then((res) => {
-      // console.log(res.data)
-      setProducts2(res.data.Products);
+    Axiosapi.post("/api/product/product-by-category", {
+      catId: categoryId2,
     })
-    .catch((err) => console.log(err));
-};
+      .then((res) => {
+        // console.log(res.data)
+        setProducts2(res.data.Products);
+      })
+      .catch((err) => console.log(err));
+  };
 
   // const _retrieveData = async () => {
   //   try {
@@ -109,9 +111,9 @@ function Home({ navigation }) {
   useEffect(() => {
     setLoading(true);
     // _retrieveData();
-    getData()
+    getData();
     getImages();
-    
+
     // fetchData();
   }, []);
 
@@ -158,7 +160,7 @@ function Home({ navigation }) {
             <Text
               style={{ fontSize: 30, fontWeight: "bold", color: COLORS.white }}
             >
-              Milkwale
+              MilkMade
             </Text>
           </View>
           <View
@@ -245,7 +247,7 @@ function Home({ navigation }) {
         >
           <Image
             resizeMode="cover"
-            source={{ uri: `${baseURL}/uploads/customize/${src}` }}
+            source={{ uri: src ? src : null }}
             style={{
               width: "100%",
               height: "100%",
@@ -394,7 +396,7 @@ function Home({ navigation }) {
                   fontWeight: "bold",
                 }}
               >
-                 {category2.cName}
+                {category2.cName}
               </Text>
             </View>
             <View

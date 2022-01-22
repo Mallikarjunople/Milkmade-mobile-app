@@ -44,7 +44,7 @@ const RegisterScreen = (props) => {
             margin: 40,
           }}
         >
-          Milkwale
+          MilkMade
         </Text>
       </View>
       <View

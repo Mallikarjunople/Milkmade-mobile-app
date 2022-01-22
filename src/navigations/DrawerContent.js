@@ -74,6 +74,8 @@ const DrawerContent = (props) => {
             console.log(res.data.User);
             setName(res.data.User.name);
             setNumber(res.data.User.phoneNumber);
+          }).catch(err=>{
+            console.log(err)
           });
         }
       } catch (error) {
@@ -171,7 +173,7 @@ const DrawerContent = (props) => {
               label="Share"
               labelStyle={{ color: "white" }}
               onPress={() => {
-                myCustomShare("https://www.logyanasolutions.com/");
+                myCustomShare("https://github.com/Mallikarjunople");
               }}
             />
 
@@ -241,10 +243,10 @@ const DrawerContent = (props) => {
                   style={{ width: 20, height: 20, marginHorizontal: 20 }}
                 />
               )}
-              label="Log out"
+              label={name ? "Log out" : "Log In"}
               labelStyle={{ color: "white" }}
               onPress={() => {
-                console.log("Log outt");
+                // console.log("Log outt");
                 signOut();
                 // props.navigation.navigate("MyOrdersScreen");
               }}
@@ -263,7 +265,7 @@ const DrawerContent = (props) => {
           alignItems: "center",
         }}
         onPress={() => {
-          Linking.openURL("https://www.logyanasolutions.com/");
+          Linking.openURL("https://github.com/Mallikarjunople");
         }}
       >
         <Text>
@@ -277,7 +279,7 @@ const DrawerContent = (props) => {
                 marginHorizontal: 4,
               }}
             >
-              Logyana Solutions Pvt. Ltd
+              Mallikarjun Ople
             </Text>
           </View>
         </Text>

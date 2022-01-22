@@ -56,7 +56,7 @@ const Card = ({
         console.log(res.data);
         // Alert.alert("product added successfully");
         ToastAndroid.show("Removed From Wishlist !!", ToastAndroid.SHORT);
-       refreshScreen()
+        refreshScreen();
       })
       .catch((err) => console.log(err));
   };
@@ -268,7 +268,7 @@ const Card = ({
       }}
     >
       <Image
-        source={{ uri: `${baseURL}/uploads/products/${cardImage}` }}
+        source={{ uri: cardImage ? cardImage : null }}
         resizeMode="cover"
         style={{
           width: "100%",
@@ -277,9 +277,10 @@ const Card = ({
           borderWidth: 1,
         }}
       />
-      {cancelButton ==true ? (
-        <TouchableOpacity style={{ position: "absolute", right: 5 }}
-         onPress={()=>removeFromWishlist(userId,product._id)}
+      {cancelButton == true ? (
+        <TouchableOpacity
+          style={{ position: "absolute", right: 5 }}
+          onPress={() => removeFromWishlist(userId, product._id)}
         >
           <Image
             source={icons.cancel}

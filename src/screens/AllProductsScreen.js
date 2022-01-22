@@ -249,7 +249,7 @@ const AllProductsScreen = (props) => {
           activeOpacity={0.8}
           onPress={() => {
             setSelectedCategoryIndex(0);
-            onSelectCategory('All-Products');
+            onSelectCategory("All-Products");
             // setfilterCategory(category.name);
             // filterCategoryDetails(category.name);
           }}
@@ -287,10 +287,10 @@ const AllProductsScreen = (props) => {
         </TouchableOpacity>
         {dataCategories.map((category, index) => (
           <TouchableOpacity
-            key={index+1}
+            key={index + 1}
             activeOpacity={0.8}
             onPress={() => {
-              setSelectedCategoryIndex(index+1);
+              setSelectedCategoryIndex(index + 1);
               onSelectCategory(category.cName);
               // setfilterCategory(category.name);
               // filterCategoryDetails(category.name);
@@ -299,14 +299,16 @@ const AllProductsScreen = (props) => {
             <View
               style={{
                 backgroundColor:
-                  selectedCategoryIndex == index+1 ? COLORS.primary : COLORS.gray,
+                  selectedCategoryIndex == index + 1
+                    ? COLORS.primary
+                    : COLORS.gray,
                 ...styles.categoryBtn,
               }}
             >
               <View style={styles.categoryBtnImgCon}>
                 <Image
                   source={{
-                    uri: `${baseURL}/uploads/categories/${category.cImage}`,
+                    uri: category.cImage ? category.cImage : null,
                   }}
                   resizeMode="cover"
                   style={{
@@ -422,7 +424,7 @@ const AllProductsScreen = (props) => {
               productName={item.pName}
               productPrice={item.pPrice}
               product={item}
-              productImages={item.pImages[1]}
+              productImages={item.pImages[0]}
               onPress={() =>
                 props.navigation.navigate("ProductDetailScreen", {
                   item: item,

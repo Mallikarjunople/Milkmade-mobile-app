@@ -35,6 +35,8 @@ const MyAccountScreen = (props) => {
             setName(res.data.User.name)
             setNumber(res.data.User.phoneNumber)
             setEmail(res.data.User.email)
+          }).catch(err=>{
+            console.log(err)
           })
         }
       } catch (error) {

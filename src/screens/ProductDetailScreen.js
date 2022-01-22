@@ -248,6 +248,8 @@ function ProductDetailScreen({ navigation, route }) {
     }).then((res) => {
       // console.log(res.data.User.wishlist);
       setWishlist(res.data.User.wishlist);
+    }).catch(err=>{
+      console.log(err)
     });
   };
 
@@ -268,7 +270,7 @@ function ProductDetailScreen({ navigation, route }) {
                 food={{ name: item.pName }}
                 productName={item.pName}
                 productPrice={item.pPrice}
-                productImages={item.pImages[1]}
+                productImages={item.pImages[0]}
                 product={item}
                 onPress={() =>
                   navigation.push("ProductDetailScreen", {
@@ -400,7 +402,7 @@ function ProductDetailScreen({ navigation, route }) {
         <ScrollView style={{ marginBottom: 40 }}>
           <Image
             source={{
-              uri: `${baseURL}/uploads/products/${productData.pImages[1]}`,
+              uri: productData.pImages[0] ? productData.pImages[0] : null,
             }}
             resizeMode="contain"
             style={{
@@ -461,7 +463,7 @@ function ProductDetailScreen({ navigation, route }) {
           >
             <Text
               style={{
-              fontFamily:'Roboto-Bold',
+                fontFamily: "Roboto-Bold",
 
                 // fontWeight: "bold",
                 fontSize: 28,

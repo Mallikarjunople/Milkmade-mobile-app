@@ -34,7 +34,9 @@ const MyOrdersScreen = ({navigation,route}) => {
                 // console.log(res.data.Order);
                 setAllOrders(res.data.Order);
               }
-            );
+            ).catch(err=>{
+              console.log(err)
+            });
           }
         } catch (error) {
           console.log(error);

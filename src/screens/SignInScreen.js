@@ -28,7 +28,7 @@ const SignInScreen = ({ navigation }) => {
   const [spinner, setSpinner] = React.useState(false);
 
   const [data, setData] = React.useState({
-    phoneNumber: "",
+    email: "",
     password: "",
   });
 
@@ -36,9 +36,9 @@ const SignInScreen = ({ navigation }) => {
 
   const { signIn } = React.useContext(AuthContext);
 
-  const loginHandle=(phoneNumber,password)=>{
+  const loginHandle=(email,password)=>{
 
-if(!phoneNumber || !password)
+if(!email || !password)
 {
   Alert.alert("Insufficient fields", "Please fill all data");
 }
@@ -58,7 +58,7 @@ else{
     // console.log(data);
         // setSpinner(!spinner);
         setData({
-          phoneNumber: "",
+          email: "",
           password: "",
         })
       })
@@ -99,7 +99,7 @@ else{
             },
           ]}
         >
-          Phone Number
+          E-mail
         </Text>
         <View style={styles.action}>
           {/* <FontAwesome 
@@ -108,7 +108,7 @@ else{
                     size={20}
                 /> */}
           <TextInput
-            placeholder="Phone number"
+            placeholder="E-mail"
             placeholderTextColor="#666666"
             style={[
               styles.textInput,
@@ -117,9 +117,8 @@ else{
               },
             ]}
 
-            value={data.phoneNumber}
-            keyboardType='numeric'
-            onChangeText={(val) =>  setData({...data,phoneNumber:val})}
+            value={data.email}
+            onChangeText={(val) =>  setData({...data,email:val})}
           />
         </View>
         <Text
@@ -184,7 +183,7 @@ else{
             },
           ]}
             onPress={() => {
-              loginHandle(data.phoneNumber, data.password);
+              loginHandle(data.email, data.password);
             }}
           >
            

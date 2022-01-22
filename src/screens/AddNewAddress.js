@@ -20,7 +20,7 @@ const AddNewAddress = (props) => {
   const [landmark, setLandmark] = useState("");
   const [pincode, setPincode] = useState("");
   const [addressType, setAddressType] = useState("");
-
+  console.log("Start")
   const fetchUserId = async () => {
     let getUserId = await AsyncStorage.getItem("userId");
     setUserId(getUserId);
@@ -38,10 +38,10 @@ const AddNewAddress = (props) => {
         },
       },
     };
-
-    Axiosapi.post(`/api/address/create`, obj)
-      .then((res) => console.log(res.data))
-      .catch((err) => console.log(err));
+    console.log(obj)
+    // Axiosapi.post(`/api/address/create`, obj)
+    //   .then((res) => console.log(res.data))
+    //   .catch((err) => console.log(err));
   };
   useEffect(() => {
     fetchUserId();
@@ -336,8 +336,8 @@ const AddNewAddress = (props) => {
                     borderRadius: 20,
                   }}
                   onPress={() => {
-                    props.navigation.navigate("SelectAddress");
                     onSubmit();
+                    props.navigation.navigate("SelectAddress");
                   }}
                 >
                   <Text

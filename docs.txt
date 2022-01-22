@@ -3,4 +3,15 @@
 --- import and specify in navigations/navigator.js
 --- specify in index.js (as to fetch with all other screens)
 
-API URL = http://1796ee58e5f0.ngrok.io
+For development, make API request to ngrok
+ex. backend is running on localhost:8000 then using ngrok make local server by
+(in CMD ): ngrok http 8000 
+gives : http://17XXXXXXXf0.ngrok.io link to make request to.
+Hence, API URL = http://1796ee58e5f0.ngrok.io
+
+
+Run using : expo start
+[- Automatically starts the Android emulator
+-   Open expo app in emulator and start 
+
+]

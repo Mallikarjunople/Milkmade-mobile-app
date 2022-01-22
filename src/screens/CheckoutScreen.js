@@ -350,7 +350,7 @@ const CheckoutScreen = ({ navigation, route }) => {
                         ? discountedPrice.toFixed(2) * 100
                         : data.discountedPrice.toFixed(2) * 100,
                     // amount is in Paise :)
-                    // name: "Logyana",
+                    // name: "UserName",
                     // order_id: "order101",
                     // Replace this with an order_id created using Orders API.
                     // Learn more at https://razorpay.com/docs/api/orders.

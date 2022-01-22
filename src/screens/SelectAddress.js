@@ -36,18 +36,26 @@ const SelectAddress = ({ navigation, route }) => {
       const _retrieveData = async () => {
         try {
           const id = await AsyncStorage.getItem("userId");
+          
           if (id !== null) {
-            Axiosapi.post(`/api/address/getAllAddress`, { userId: id }).then(
+            Axiosapi.post(`/api/address/getAllAddress`, { userId: id })
+            .then(
               (res) => {
-                // console.log(res.data);
+                console.log(res.data.userAddress);
                 setAllAddresses(res.data.userAddress.address);
               }
-            );
+            )
+            .catch(err=>{
+              console.log(err)
+              setAllAddresses([])
+              console.log("Request failed")
+            })
           }
         } catch (error) {
           console.log(error);
         }
       };
+
       _retrieveData();
     }, [])
   );
@@ -111,7 +119,7 @@ const SelectAddress = ({ navigation, route }) => {
             </Text>
           </TouchableOpacity>
           <ScrollView style={{ flex: 1, width: "100%", marginTop: 20 }}>
-            {allAddresses.map((item, index) => {
+            {allAddresses? (allAddresses.map((item, index) => {
               return (
                 <View key={index}>
                   <TouchableWithoutFeedback
@@ -160,7 +168,13 @@ const SelectAddress = ({ navigation, route }) => {
                   </View>
                 </View>
               );
-            })}
+            })):(
+              <View>
+              <Text style={{fontSize:20,fontWeight:'bold'}}> 
+                No addresses found
+              </Text>
+              </View>
+            )}
           </ScrollView>
           <View
             style={{

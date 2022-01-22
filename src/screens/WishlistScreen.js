@@ -33,6 +33,8 @@ const WishlistScreen = ({ navigation, route }) => {
         Axiosapi.post(`/api/user/single-user`, { uId: id }).then((res) => {
           setWishlist(res.data.User.wishlist);
           setloading(false);
+        }).catch(err=>{
+          console.log(err)
         });
       }
     } catch (error) {

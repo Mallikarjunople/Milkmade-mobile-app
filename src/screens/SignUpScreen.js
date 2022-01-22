@@ -49,6 +49,8 @@ const SignUpScreen = ({ navigation }) => {
       feedData.password === ""
     ) {
       Alert.alert("All Fields are required", "");
+    }else if(feedData.password.length < 8){
+      Alert.alert("Password must be at least 8 character", "");
     } else {
       // else if (feedData.phoneNumber.length != 10) {
       //   Alert.alert("Invalid Phone Number", "");
@@ -59,7 +61,7 @@ const SignUpScreen = ({ navigation }) => {
       //   setSpinner(!spinner);
       Axiosapi.post("/api/signup", feedData)
         .then(async (res) => {
-          // console.log(res.data);
+          console.log(res.data);
           // navigation.navigate("SignInScreen");
           // setSpinner(!spinner);
           setFeedData({
@@ -84,7 +86,7 @@ const SignUpScreen = ({ navigation }) => {
         textStyle={{ color: "white" }}
       />
       <View style={styles.header}>
-        <Text style={styles.text_header}>Welcome to Milkwale</Text>
+        <Text style={styles.text_header}>Welcome to MilkMade</Text>
       </View>
       <Animatable.View animation="fadeInUpBig" style={styles.footer}>
         <ScrollView>

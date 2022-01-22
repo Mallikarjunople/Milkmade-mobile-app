@@ -15,13 +15,13 @@ import AsyncStorage from "@react-native-community/async-storage";
 
 // for adding auth later
 export const Axiosapi = axios.create({
-  baseURL: "http://69b425d16ea8.ngrok.io",
+  baseURL: "https://milkmade.herokuapp.com/",
   // headers: {
   //   Authorization: `Bearer ${token}`,
   // },
 });
 // for image use from uploads folder
-export const baseURL = "http://69b425d16ea8.ngrok.io";
+export const baseURL = "https://milkmade.herokuapp.com/";
 
 function App() {
   const [isLoading, setIsLoading] = React.useState(true);
@@ -75,7 +75,7 @@ function App() {
             width:159
           }}
         />
-        <Text style={{color:COLORS.primary,fontSize:22,fontWeight:'bold'}}>Milkwale</Text>
+        <Text style={{color:COLORS.primary,fontSize:22,fontWeight:'bold'}}>MilkMade</Text>
       </View>
     );
   }

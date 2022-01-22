@@ -34,6 +34,8 @@ const MySubscriptions = ({ navigation, route }) => {
 
               // console.log(res.data.Subscription);
               setAllSubscriptions(res.data.Subscription);
+            }).catch(err=>{
+              console.log(err)
             });
           }
         } catch (error) {
