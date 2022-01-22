@@ -1,2 +1,2 @@
-# completeEcommerceMllk
-A React Native based e-commerce application 
+# MilkMade
+A React Native based E-commerce mobile application for Dairy products
