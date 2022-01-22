@@ -1,2 +1,9 @@
 # MilkMade
-A React Native based E-commerce mobile application for Dairy products
+ - A React Native based E-commerce mobile application for Dairy products  
+
+## Screenshots
+### Product Ordering Process
+<img src="https://res.cloudinary.com/duja4ggya/image/upload/v1642859972/MilkMade-mobile-app-screenshot/WhatsApp_Image_2022-01-22_at_7.24.03_PM_1_ihvl6l.jpg" width="200" height="390"> <img src="https://res.cloudinary.com/duja4ggya/image/upload/v1642859972/MilkMade-mobile-app-screenshot/WhatsApp_Image_2022-01-22_at_7.24.03_PM_xkjuea.jpg" width="200" height="390"> <img src="https://res.cloudinary.com/duja4ggya/image/upload/v1642859972/MilkMade-mobile-app-screenshot/WhatsApp_Image_2022-01-22_at_7.24.04_PM_y815dx.jpg" width="200" height="390"> <img src="https://res.cloudinary.com/duja4ggya/image/upload/v1642859972/MilkMade-mobile-app-screenshot/WhatsApp_Image_2022-01-22_at_7.24.06_PM_1_g6zx3z.jpg" width="200" height="390"> <img src="https://res.cloudinary.com/duja4ggya/image/upload/v1642859972/MilkMade-mobile-app-screenshot/WhatsApp_Image_2022-01-22_at_7.24.06_PM_bgkx0m.jpg" width="200" height="390"> <img src="https://res.cloudinary.com/duja4ggya/image/upload/v1642859973/MilkMade-mobile-app-screenshot/WhatsApp_Image_2022-01-22_at_7.24.00_PM_tkt55o.jpg" width="200" height="390"> <img src="https://res.cloudinary.com/duja4ggya/image/upload/v1642859973/MilkMade-mobile-app-screenshot/WhatsApp_Image_2022-01-22_at_7.24.07_PM_jr70ro.jpg" width="200" height="390">
+
+### Product Subscription process
+<img src="https://res.cloudinary.com/duja4ggya/image/upload/v1642859972/MilkMade-mobile-app-screenshot/WhatsApp_Image_2022-01-22_at_7.24.06_PM_bgkx0m.jpg" width="200" height="390"> <img src="https://res.cloudinary.com/duja4ggya/image/upload/v1642859973/MilkMade-mobile-app-screenshot/WhatsApp_Image_2022-01-22_at_7.24.07_PM_1_x1qimn.jpg" width="200" height="390"> <img src="https://res.cloudinary.com/duja4ggya/image/upload/v1642859973/MilkMade-mobile-app-screenshot/WhatsApp_Image_2022-01-22_at_7.24.07_PM_jr70ro.jpg" width="200" height="390">
